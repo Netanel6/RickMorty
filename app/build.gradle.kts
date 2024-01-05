@@ -64,4 +64,8 @@ dependencies {
     // Hilt DI
     implementation("com.google.dagger:hilt-android:2.47")
     kapt("com.google.dagger:hilt-compiler:2.47")
+
+    // Gerva
+    implementation("com.github.Ziv-Nergal:Gerva:1.0.3")
+
 }

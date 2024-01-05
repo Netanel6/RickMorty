@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getCharacter() {
-        viewModel?.getCharacters()
+        viewModel.getCharacters()
     }
 
 }
