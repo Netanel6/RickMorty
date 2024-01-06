@@ -1,4 +1,4 @@
-package com.netanel.rickmorty.home
+package com.netanel.rickmorty.home.view
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

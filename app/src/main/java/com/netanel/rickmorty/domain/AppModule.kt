@@ -15,10 +15,13 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
+    // Provides a singleton instance of Retrofit using RetrofitInstance.
     @Singleton
     @Provides
     fun provideRetrofitInstance() = RetrofitInstance
 
+    // Provides a singleton instance of ApiService using RetrofitInstance.
+    // The ApiService instance is created based on the ApiService interface.
     @Singleton
     @Provides
     fun provideNetworkManager(retrofitInstance: RetrofitInstance): ApiService {

@@ -1,4 +1,4 @@
-package com.netanel.rickmorty.home
+package com.netanel.rickmorty.home.di
 
 import com.netanel.rickmorty.domain.ApiService
 import com.netanel.rickmorty.home.repository.HomeRepository

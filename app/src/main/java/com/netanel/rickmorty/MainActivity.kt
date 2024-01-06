@@ -3,7 +3,7 @@ package com.netanel.rickmorty
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.netanel.rickmorty.home.HomeViewModel
+import com.netanel.rickmorty.home.view.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
