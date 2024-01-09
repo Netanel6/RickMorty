@@ -1,7 +1,7 @@
 package com.netanel.rickmorty.home.repository
 
 import com.netanel.rickmorty.domain.ApiService
-import com.netanel.rickmorty.domain.model.character.Character
+import com.netanel.rickmorty.domain.model.character.Characters
 import retrofit2.Call
 
 
@@ -11,7 +11,7 @@ import retrofit2.Call
  */
 class HomeRepositoryImpl(private val networkManager: ApiService): HomeRepository {
 
-    override suspend fun getCharacters(): Call<Character> {
+    override suspend fun getCharacters(): Call<Characters> {
         return networkManager.getCharacters()
     }
 }

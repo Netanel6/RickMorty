@@ -1,7 +1,7 @@
 package com.netanel.rickmorty.home.repository
 
 
-import com.netanel.rickmorty.domain.model.character.Character
+import com.netanel.rickmorty.domain.model.character.Characters
 import retrofit2.Call
 
 
@@ -10,5 +10,5 @@ import retrofit2.Call
  * NetanelCA2@gmail.com
  */
 interface HomeRepository {
-    suspend fun getCharacters(): Call<Character>
+    suspend fun getCharacters(): Call<Characters>
 }

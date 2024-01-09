@@ -1,6 +1,6 @@
 package com.netanel.rickmorty.domain
 
-import com.netanel.rickmorty.domain.model.character.Character
+import com.netanel.rickmorty.domain.model.character.Characters
 import retrofit2.Call
 import retrofit2.http.GET
 
@@ -16,6 +16,6 @@ interface ApiService {
 
     // Retrofit GET annotation specifies the HTTP GET request to the "character" endpoint.
     @GET("character")
-    fun getCharacters(): Call<Character>
+    fun getCharacters(): Call<Characters>
 
 }
