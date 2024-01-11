@@ -11,4 +11,5 @@ import retrofit2.Call
  */
 interface HomeRepository {
     suspend fun getCharacters(): Call<Characters>
+
 }

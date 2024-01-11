@@ -1,7 +1,6 @@
 package com.netanel.rickmorty.gernericRecyclerView
 
 import com.netanel.rickmorty.R
-import java.util.UUID
 
 /**
  * This is an example data class that implement Model interface.
@@ -24,7 +23,5 @@ internal data class ExampleModel(
         fun onTextClicked(model: ExampleModel)
     }
 
-    override val id: String = UUID.randomUUID().toString()
-
-    override fun getLayoutId(): Int = R.layout.item_example_text
+    override fun getViewType(): Int = R.layout.item_example_text
 }

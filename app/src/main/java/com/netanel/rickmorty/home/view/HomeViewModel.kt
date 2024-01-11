@@ -23,6 +23,7 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(private val repository: HomeRepository): ViewModel() {
 
     private val listOfCharacters: MutableLiveData<List<Character>> = MutableLiveData()
+    val _listOfCharacters by lazy { listOfCharacters }
 
     fun getCharacters() {
         viewModelScope.launch(Dispatchers.IO) {

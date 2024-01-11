@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="model"
+            type="com.netanel.rickmorty.gernericRecyclerView.model.CharacterModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:clickable="false"
+        android:focusable="false"
+        >
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{model.character.name}"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Rick Sanchez" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            tools:src="@drawable/ic_launcher_background"
+            android:layout_marginVertical="8dp"
+            android:importantForAccessibility="no"
+            android:scaleType="centerCrop"
+            bind:civ_border_color="@{model.getBorderColor}"
+            app:civ_border_overlay="false"
+            app:civ_border_width="3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            bind:imageUrl="@{model.character.image}" />
+
+        <ImageView
+            bind:srcImg="@{model.getSpeciesImg}"
+            app:layout_constraintTop_toTopOf="@id/image"
+            app:layout_constraintEnd_toStartOf="@id/image"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            tools:src="@drawable/ic_human"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

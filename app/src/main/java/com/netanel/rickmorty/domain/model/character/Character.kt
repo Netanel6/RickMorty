@@ -13,9 +13,36 @@ data class Character(
     val location: Location,
     val name: String,
     val origin: Origin,
-    val species: String,
-    val status: String,
+    val species: Species,
+    val status: Status,
     val type: String,
     val url: String
 ) {
+
+    enum class Status(val value: String) {
+        Dead("Dead"),
+        Alive("Alive"),
+        unknown("unknown")
+    }
+
+    val isAlive: Boolean
+        get() = status == Status.Alive
+
+    val isDead: Boolean
+        get() = status == Status.Dead
+
+
+    enum class Species(val value: String) {
+        Human("Human"),
+        Alien("Alien"),
+        unknown("unknown")
+    }
+
+    val isHuman: Boolean
+        get() = species == Species.Human
+
+    val isAlien: Boolean
+        get() = species == Species.Alien
+
+
 }

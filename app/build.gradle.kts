@@ -81,4 +81,11 @@ dependencies {
 
     // Lottie
     implementation("com.airbnb.android:lottie:6.2.0")
+
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
+
+    // Circular ImageView
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 }

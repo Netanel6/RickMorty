@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.netanel.rickmorty.databinding.FragmentHomeBinding
+import com.netanel.rickmorty.gernericRecyclerView.GenericRecyclerViewAdapter
+import com.netanel.rickmorty.gernericRecyclerView.Model
+import com.netanel.rickmorty.gernericRecyclerView.model.CharacterModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -14,7 +17,6 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
 
     private val viewModel: HomeViewModel by viewModels()
-    
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,14 +26,26 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getCharacters()
+        observeListOfCharacters()
     }
 
-    companion object {
-        fun newInstance() = HomeFragment()
+    private fun observeListOfCharacters() {
+        viewModel.getCharacters()
+        viewModel._listOfCharacters.observe(viewLifecycleOwner) { listOfCharacters ->
+            if (listOfCharacters != null) {
+                val list = arrayListOf<Model>()
+                for (i in listOfCharacters) {
+                    list.add(CharacterModel(i))
+                }
+                binding.charactersRecyclerView.adapter = GenericRecyclerViewAdapter(items = list)
+            }
+        }
+    }
+
+    fun newInstance() = HomeFragment()
+        companion object {
     }
 
 }
