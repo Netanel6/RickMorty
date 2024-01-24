@@ -7,7 +7,7 @@ package com.netanel.rickmorty.domain.model.character
 data class Character(
     val created: String,
     val episode: List<String>,
-    val gender: String,
+    val gender: Gender,
     val id: Int,
     val image: String,
     val location: Location,
@@ -19,10 +19,10 @@ data class Character(
     val url: String
 ) {
 
-    enum class Status(val value: String) {
-        Dead("Dead"),
-        Alive("Alive"),
-        unknown("unknown")
+    enum class Status {
+        Dead,
+        Alive,
+        unknown
     }
 
     val isAlive: Boolean
@@ -32,10 +32,10 @@ data class Character(
         get() = status == Status.Dead
 
 
-    enum class Species(val value: String) {
-        Human("Human"),
-        Alien("Alien"),
-        unknown("unknown")
+    enum class Species {
+        Human,
+        Alien,
+        unknown
     }
 
     val isHuman: Boolean
@@ -44,5 +44,15 @@ data class Character(
     val isAlien: Boolean
         get() = species == Species.Alien
 
+    enum class Gender {
+        Male,
+        Female,
+        unknown
+    }
 
+    val isMale: Boolean
+        get() = gender == Gender.Male
+
+    val isFemale: Boolean
+        get() = gender == Gender.Female
 }

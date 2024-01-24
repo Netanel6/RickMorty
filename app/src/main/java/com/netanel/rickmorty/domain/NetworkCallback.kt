@@ -27,7 +27,7 @@ abstract class NetworkCallback<T : DefaultRestError?> : Callback<T?> {
 
     // Handles the onFailure callback from Retrofit, invoking onFailure with a default error.
     override fun onFailure(call: Call<T?>, throwable: Throwable) {
-        onFailure(DefaultRestError())
+        onFailure(DefaultRestError(error = throwable.message, stack = throwable.cause?.message, throwable.stackTraceToString()))
     }
 
     // Abstract method to be implemented by subclasses for handling successful responses.

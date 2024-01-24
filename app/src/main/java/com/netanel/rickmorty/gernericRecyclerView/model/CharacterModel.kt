@@ -14,9 +14,17 @@ data class CharacterModel(val character: Character) : Model {
     val getSpeciesImg: Int
         get() {
             return when (character.species) {
-                Character.Species.Alien -> { R.drawable.ic_alien }
-                Character.Species.Human -> { R.drawable.ic_human }
-                Character.Species.unknown -> { R.drawable.ic_human }
+                Character.Species.Alien -> {
+                    R.drawable.ic_alien
+                }
+
+                Character.Species.Human -> {
+                    if (character.gender == Character.Gender.Male) R.drawable.ic_human_male else R.drawable.ic_human_female
+                }
+
+                Character.Species.unknown -> {
+                    R.drawable.ic_question_mark
+                }
             }
         }
 
@@ -24,11 +32,41 @@ data class CharacterModel(val character: Character) : Model {
     val getBorderColor: Int
         get() {
             return when (character.status) {
-                Character.Status.Alive -> { R.color.green }
-                Character.Status.Dead -> { R.color.red }
-                Character.Status.unknown -> { R.color.grey }
+                Character.Status.Alive -> {
+                    R.color.green
+                }
+
+                Character.Status.Dead -> {
+                    R.color.red
+                }
+
+                Character.Status.unknown -> {
+                    R.color.grey
+                }
             }
         }
+
+    val getGenderImg: Int
+        get() {
+            return when (character.gender) {
+                Character.Gender.Male -> {
+                    R.drawable.ic_male
+                }
+
+                Character.Gender.Female -> {
+                    R.drawable.ic_female
+                }
+
+                Character.Gender.unknown -> {
+                    R.drawable.ic_question_mark
+                }
+            }
+        }
+
+    interface ClickListener {
+        // TODO: Continue from here 23.01.24
+        fun onClick(character: Character)
+    }
 
     override fun getViewType(): Int = R.layout.item_character_model
 
